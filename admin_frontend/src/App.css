@@ -1,0 +1,373 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
+/* @import "~antd/dist/antd.css"; */
+
+a {
+  outline: none !important;
+}
+
+
+
+/* ===============================================%%%%%%% sidebar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+.profile-sidebar {
+  height: 100vh;
+  position: fixed;
+  background-color: #15265B;
+  border: 1px solid #767676;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  width: 23%;
+  text-align: left;
+}
+
+.widget-profile {
+  background-color: #15265B;
+  /* border-bottom: 1px solid #f0f0f0; */
+}
+.widget-profile .profile-info-widget {
+  display: block;
+  text-align: center;
+}
+.widget-profile .profile-info-widget .booking-doc-img {
+  display: inline-block;
+  margin: 0 0 15px;
+  width: auto;
+  padding: 8px;
+  background-color: #f7f7f7;
+  border-radius: 50%;
+}
+
+.profile-det-info h3 {
+  font-size: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fff;
+}
+.patient-details h5 {
+  color: #dcdcdc;
+  font-size: 13px;
+  font-weight: normal;
+  margin-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dashboard-menu ul {
+  color: #757575;
+  font-size: 14px;
+  line-height: 17px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+}
+.dashboard-menu > ul > li {
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+.dashboard-menu > ul > li:hover > a,
+.dashboard-menu > ul > li.active > a {
+  color: #81cce9;
+}
+.theiaStickySidebar {
+  font-family: "Poppins", sans-serif;
+}
+.fnt {
+  font-family: "Poppins", sans-serif;
+}
+.pro-widget-content {
+  /* border-bottom: 1px solid #f0f0f0; */
+  padding: 30px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  box-shadow:0px 8px 8px #3c4658;
+  margin-bottom: 15px;
+}
+.add-content{
+  background-color: #DF7FE0;
+    padding: 20px;
+    border-radius: 40px;
+    margin: 30px 0 ;
+    display: flex;
+     justify-content: space-between;
+}
+.add-button{
+  border-radius: 25px;
+    padding: 7px 36px;
+    background-color: #15265B;
+}
+.add-head{
+  margin-bottom: 0;
+  align-items: center;
+  display: flex;
+  font-size: 23px; 
+  color: #15265B;
+}
+.dash-card {
+  font-family: "Poppins", sans-serif;
+}
+.appointment-tab .tab-content {
+  padding-top: 0;
+}
+
+.card-table .table td,
+.card-table .table th {
+  border-top: 1px solid #e2e5e8;
+  padding: 18px 0.75rem;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.dashboard-menu > ul > li > a {
+  color: #dcdcdc;
+  display: block;
+  padding: 16px 20px;
+}
+.dashboard-menu ul li a svg {
+  font-size: 16px;
+  margin-right: 10px;
+  width: 16px;
+}
+.fa-columns:before {
+  content: "\f0db";
+}
+.dashboard-menu ul li a span,
+.dashboard-menu ul li a svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+.sidebar-p .container-fluid {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.content {
+  min-height: 200px;
+  padding: 30px 0 0;
+}
+.dash-card .row > div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.dct-border-rht {
+  border-right: 1px solid #f0f0f0;
+  display: flex;
+}
+
+.table-action {
+  display: flex;
+  justify-content: space-evenly;
+}
+.table-action a {
+  font-size: 13px;
+}
+.card-table {
+  font-size: 15px;
+}
+
+.dash-widget h6 {
+  font-size: 14px;
+  font-weight: 400;
+}
+.dash-widget h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+.dash-widget p {
+  color: #757575;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+.appointment-tab {
+  margin-bottom: 30px;
+}
+.appointment-tab .nav-tabs {
+  background-color: #fff;
+  padding: 2.5rem;
+  border: 1px solid #f0f0f0;
+  border-radius: 0.25rem 0.25rem 0 0 !important;
+}
+.nav-tabs.nav-tabs-solid > li {
+  margin-bottom: 0;
+}
+.nav-tabs.nav-tabs-solid > li > a.active,
+.nav-tabs.nav-tabs-solid > li > a.active:hover,
+.nav-tabs.nav-tabs-solid > li > a.active:focus {
+  background-color: #ee344e;
+  border-color: #ee344e;
+  color: #fff;
+}
+.nav-tabs.nav-tabs-solid.nav-tabs-rounded > li > a {
+  border-radius: 50px;
+  font-size: 14px;
+}
+.tab-content {
+  padding-top: 20px;
+}
+.tab-content > .active {
+  display: block;
+}
+.appointment-tab .card {
+  border-radius: 0;
+}
+.card-table .card-body {
+  padding: 0;
+}
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table {
+  color: #272b41;
+  max-width: 100%;
+  margin-bottom: 0;
+  width: 100%;
+}
+.table thead {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+.card-table .card-body .table > thead > tr > th {
+  border-top: none !important;
+  border-bottom: none;
+  font-size: 15px;
+}
+.card {
+  border: 1px solid #f0f0f0;
+  margin-bottom: 1.875rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(159 159 159 / 17%);
+}
+.vb {
+  margin-bottom: 2.5rem !important;
+}
+table.table td h2.table-avatar {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: inherit;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.avatar > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+table.table td h2 a {
+  color: #272b41;
+}
+table.table td h2 span {
+  color: #888;
+  display: block;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.card-table .table tr td:last-child,
+.card-table .table tr th:last-child {
+  padding-right: 1.5rem;
+}
+.bg-info-light {
+  background-color: rgba(2, 182, 179, 0.12) !important;
+  color: #1db9aa !important;
+}
+.bg-success-light {
+  background-color: rgba(15, 183, 107, 0.12) !important;
+  color: #26af48 !important;
+}
+.bg-danger-light {
+  background-color: rgba(242, 17, 54, 0.12) !important;
+  color: #e63c3c !important;
+}
+
+
+
+
+/* ============================media query============================== */
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .form-col ul li {
+    width: 100%;
+    padding: 7px 0;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  
+  body {
+    font-size: 1rem !important;
+  }
+  .invoice-item .customer-text {
+    font-size: 16px;
+  }
+  .invoice-item .invoice-details {
+    text-align: left;
+  }
+  .invoice-info.invoice-info2 {
+    text-align: left;
+  }
+  
+  .form-control {
+    padding: 6px 15px;
+  }
+  
+  
+}
+@media only screen and (max-width: 479px) {
+ 
+  .form-col ul li {
+    width: 100%;
+    padding: 7px 0;
+  }
+}
+@media only screen and (max-width: 1199px) {
+ 
+}
+@media only screen and (max-width: 991.98px) {
+ 
+  .container {
+    max-width: 100%;
+  }
+ 
+}
+@media only screen and (max-width: 575.98px) {
+}
+
+
+
+
+@media (min-width: 320px) and (max-width: 767.98px) {
+  
+}
+
+
+
+
+
+
+
