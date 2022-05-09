@@ -14,6 +14,41 @@ a {
   outline: none !important;
 }
 
+/* =========================login start===================================*/
+
+.login-nav{
+  background-color: #15265B;
+}
+.state{
+  height: 33%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: -31px;
+}
+.login-bg{
+  background-image: url('../public/images/istockphoto-505949309-612x612.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 87vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: right;
+  text-align: center;
+  padding: 0 20px;
+ 
+}
+
+.login-btn{
+  background-color: #f58838;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 12px 33px;
+  border-radius: 16px;
+}
+/* =========================login end=====================================*/
 
 
 /* ===============================================%%%%%%% sidebar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/

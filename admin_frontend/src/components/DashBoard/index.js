@@ -23,7 +23,7 @@ const DistributeReward = () => {
   }
   useEffect(()=>{
     fetchData();
-    if(walletAddress){
+    if(walletAddress !== ''){
       setSaveBtn(false);
     }
   },[walletAddress])
@@ -47,23 +47,31 @@ const DistributeReward = () => {
     }
     if(address.length !== 42){
       setError('Invalid Address');
+      setSaveBtn(true);
       return
     }
     setWalletAddress(address);
     setError('');
+    setSaveBtn(false);
   }
   const addUser = async() => {
     await axios.post('users/adduser',{walletAddress})
     .then((res)=>{
       notify(res.data.message,'success');
       fetchData();
+      setWalletAddress('');
+      setSaveBtn(true);
     }).catch((error)=>{
       notify(error.response.data.message,'error');
     })
     handleClose();
   }
   const handleShow = async () => setShow(true)
-  const handleClose = async () => setShow(false)
+  const handleClose = async () => {
+    setShow(false)
+    setWalletAddress('');
+    setSaveBtn(true);
+  }
   const handleShow2 = async () => setShow2(true)
   const handleClose2 = async () => setShow2(false)
   const deleteHandler = async() => {
