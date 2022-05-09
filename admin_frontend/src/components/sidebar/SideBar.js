@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 
-const Sidebar = ({ item }) => {
+const Sidebar = ({ item,click }) => {
   return (
     <div className='dashboard-widget'>
       <nav className='dashboard-menu'>
         <ul>
-          <li className={item.active}>
-            <Link to={`${item.to}`}>
+          <li className={item.active} onClick={(e)=>click(e)}>
+            <Link to={`${item.to}`} >
               <i className={`fas ${item.icon}`}></i>
-              <span style={{marginLeft:"22px"}}>{item.title}</span>
+              <span style={{marginLeft:"22px"}} >{item.title}</span>
             </Link>
           </li>
         </ul>

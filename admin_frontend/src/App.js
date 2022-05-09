@@ -13,7 +13,7 @@ import axios from 'axios';
 
 function App() {
     const [admin,setAdmin] = useState(false);
-
+  // const navigate = useNavigate();
     const notify = (message, color) =>
   toast(message, {
     position: 'top-right',
@@ -31,8 +31,8 @@ function App() {
         await axios.post(process.env.REACT_APP_BASE_URL+'admin/auth',{address})
         .then((res)=>{
           localStorage.setItem("adminInfo",JSON.stringify(res.data));
-         const adminInfo =  localStorage.getItem('adminInfo');
-          setAdmin(JSON.parse(adminInfo));
+          setAdmin(true);
+          // navigate('/users');
           notify('user logedIn successfuly!');
         })
         .catch((error)=>{
@@ -42,10 +42,13 @@ function App() {
     }
     useEffect(()=>{
       if(localStorage.getItem('adminInfo')){
-        const adminInfo = localStorage.getItem('adminInfo');
-        setAdmin(JSON.parse(adminInfo));
+        
+        setAdmin(true);
       }
+      
+      
     },[])
+
   return (
     <>
     <ToastContainer/>
@@ -55,12 +58,12 @@ function App() {
         <div className=''>
           <div className='row'>
             <div className='col-md-4 col-lg-4 col-xl-3 theiaStickySidebar'>
-              <Side />
+              <Side admin={setAdmin} />
             </div>
             <div className='col-md-7 col-lg-8 col-xl-9'>
             <div className='container-fluid'>
               <Routes>
-                <Route path='/' element={<Dashboard />} />
+                <Route path={admin? '/':'/dashboard'} element={<Dashboard />} />
                 <Route path='/users' element={<Dashboard />} />
                 <Route path='/pets' element={<Invoicelist />} />
                 <Route path='/assets' element={<Assetslist />} />
@@ -76,7 +79,11 @@ function App() {
       </div>
     </Router>
   </div> :
-  <Login admin = {authenticateAdmin}/> 
+  <Router>
+    <Routes>
+      <Route path='/' element={<Login admin = {authenticateAdmin}/>}/>
+    </Routes>
+  </Router> 
   }
 </>    
   )

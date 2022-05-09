@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import Sidebar from './SideBar'
 
 
-const Side = () => {
+const Side = ({admin}) => {
   const con = [
     {
       icon: 'fa fa-user',
@@ -25,11 +24,17 @@ const Side = () => {
       to: '/distribute-reward',
     },
     {
-      icon: 'fa fa-trophy',
-      title: 'Add Admin',
-      to: '/register',
+      icon: 'fa fa-sign-out',
+      title: 'Log Out',
+      to: '/',
     },
   ]
+  const clickHandler = (e) => {
+    if(e.target.innerText === 'Log Out'){
+      localStorage.removeItem('adminInfo');
+      admin(false) 
+    }
+  }
 
   return (
     <div className='theiaStickySidebar'>
@@ -49,7 +54,7 @@ const Side = () => {
         </div>
 
         {con.map((item, index) => (
-          <Sidebar key={index} item={item} />
+          <Sidebar key={index} item={item} click={clickHandler}/>
         ))}
       </div>
     </div>
