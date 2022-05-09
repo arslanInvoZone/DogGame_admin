@@ -14,9 +14,8 @@ const DistributeReward = () => {
   const [saveBtn, setSaveBtn] = useState(true);
   const [userId,setUserId] = useState('');
   const [show2,setShow2] = useState(false);
-
   const fetchData = async() => {
-    await axios.get('users/')
+    await axios.get(process.env.REACT_APP_BASE_URL+'users/')
     .then((res)=>{
       setData(res.data)
     })
@@ -55,7 +54,7 @@ const DistributeReward = () => {
     setSaveBtn(false);
   }
   const addUser = async() => {
-    await axios.post('users/adduser',{walletAddress})
+    await axios.post(process.env.REACT_APP_BASE_URL+'users/adduser',{walletAddress})
     .then((res)=>{
       notify(res.data.message,'success');
       fetchData();
@@ -75,7 +74,7 @@ const DistributeReward = () => {
   const handleShow2 = async () => setShow2(true)
   const handleClose2 = async () => setShow2(false)
   const deleteHandler = async() => {
-    await axios.post('users/delete',{userId})
+    await axios.post(process.env.REACT_APP_BASE_URL+'users/delete',{userId})
     .then((res)=>{
       notify(res.data.message,'success');
       fetchData();

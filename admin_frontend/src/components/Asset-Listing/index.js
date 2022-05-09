@@ -27,7 +27,7 @@ const Invoicelist = () => {
   const [petId ,setPetId] = useState('');
 
   const fetchData = async() => {
-    const petsData = await axios.get('pets/');
+    const petsData = await axios.get(process.env.REACT_APP_BASE_URL+'pets/');
     if(petsData){
       setPetsData(petsData);
     }
@@ -60,7 +60,7 @@ const Invoicelist = () => {
   const handleShow2 = async () => setShow2(true)
   const handleShow3 = async () => {
     setShow3(true)
-    await axios.put('pets/update',{petId})
+    await axios.put(process.env.REACT_APP_BASE_URL+'pets/update',{petId})
     .then((res)=>{
       const{name,description,imageUrl} = res.data
       if(!res.data){
@@ -119,7 +119,7 @@ const Invoicelist = () => {
   }
   const sendDataToDB = async () => {
     await axios
-      .post('pets/addpets', {
+      .post(process.env.REACT_APP_BASE_URL+'pets/addpets', {
         name: petName,
         description: petDescription,
         imageUrl: petImageUrl,
@@ -190,7 +190,7 @@ const Invoicelist = () => {
       })
   }
   const deleteHandler = async() =>{
-    await axios.post('pets/delete',{petId})
+    await axios.post(process.env.REACT_APP_BASE_URL+'pets/delete',{petId})
     .then((res)=>{
       notify(res.data.message,"success")
       fetchData();
@@ -198,7 +198,7 @@ const Invoicelist = () => {
     handleClose();
   }
   const updateHandler = async() =>{
-    await axios.put('pets/update',{petId,petName,petDescription,petImageUrl})
+    await axios.put(process.env.REACT_APP_BASE_URL+'pets/update',{petId,petName,petDescription,petImageUrl})
     notify('updated Successfuly!','success');
     handleClose();
     fetchData();

@@ -28,7 +28,7 @@ function App() {
 
     const authenticateAdmin = async (address) => {
       if(address){
-        await axios.post('admin/auth',{address})
+        await axios.post(process.env.REACT_APP_BASE_URL+'admin/auth',{address})
         .then((res)=>{
           localStorage.setItem("adminInfo",JSON.stringify(res.data));
          const adminInfo =  localStorage.getItem('adminInfo');
