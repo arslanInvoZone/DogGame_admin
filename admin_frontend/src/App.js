@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import axios from 'axios';
 
 function App() {
-    const [admin,setAdmin] = useState(true);
+    const [admin,setAdmin] = useState(false);
 
     const notify = (message, color) =>
   toast(message, {
