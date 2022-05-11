@@ -1,7 +1,7 @@
 import Dashboard from './components/DashBoard/index'
-import Invoicelist from './components/Pet-Listing'
+import PetsLists from './components/Pet-Listing'
 import Assetslist from './components/Asset-Listing'
-import DistributeReward from '../src/components/Distributed-Data/index'
+import DistributeReward from './components/Distribute-rewards/index'
 import Side from './components/sidebar'
 import Login from "./components/Login/index"
 import './App.css'
@@ -65,7 +65,7 @@ function App() {
               <Routes>
                 <Route path={admin? '/':'/dashboard'} element={<Dashboard />} />
                 <Route path='/users' element={<Dashboard />} />
-                <Route path='/pets' element={<Invoicelist />} />
+                <Route path='/pets' element={<PetsLists />} />
                 <Route path='/assets' element={<Assetslist />} />
                 <Route
                   path='/distribute-reward'

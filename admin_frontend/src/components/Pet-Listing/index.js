@@ -6,7 +6,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-const Invoicelist = () => {
+const PetsList = () => {
   const [petsData, setPetsData] = useState([]);
   const [show, setShow] = useState(false)
   const [show2, setShow2] = useState(false)
@@ -446,4 +446,4 @@ const Invoicelist = () => {
   )
 }
 
-export default Invoicelist
+export default PetsList

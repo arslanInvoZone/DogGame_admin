@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-const DistributeReward = () => {
+const DashBoard = () => {
   const [data, setData] = useState([]);
   const [walletAddress,setWalletAddress] = useState('');
   const [error,setError] = useState('');
@@ -167,4 +167,4 @@ const DistributeReward = () => {
   )
 }
 
-export default DistributeReward
+export default DashBoard

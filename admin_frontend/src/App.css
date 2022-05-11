@@ -50,6 +50,17 @@ a {
 }
 /* =========================login end=====================================*/
 
+/* =========================reward start===================================*/
+.rwardContainer {
+  width: 70%;
+  margin: auto;
+}
+.inputsContainer  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+}
 
 /* ===============================================%%%%%%% sidebar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
