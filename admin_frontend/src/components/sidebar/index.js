@@ -1,4 +1,5 @@
 import Sidebar from './SideBar'
+import { Link } from 'react-router-dom'
 
 
 const Side = ({admin}) => {
@@ -56,6 +57,7 @@ const Side = ({admin}) => {
         {con.map((item, index) => (
           <Sidebar key={index} item={item} click={clickHandler}/>
         ))}
+
       </div>
     </div>
   )

@@ -10,8 +10,8 @@ admin_metadog_verse:
     - echo "Deploy to QA server"
     - ssh-add <(echo "$SSH_KEY")
     - rm -rf .git
-    - ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER "cd /home/dogmeta-admin/backend; git reset --hard; git pull origin dev; cd /home/dogmeta-admin/backend/admin_backend/; npm install; cd /home/dogmeta-admin/backend/admin_frontend/; npm install; pm2 restart all; exit"
+    - ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER "cd /home/dogmeta-admin/backend; git reset --hard; git pull origin updated; cd /home/dogmeta-admin/backend/admin_backend/; npm install; cd /home/dogmeta-admin/backend/admin_frontend/; npm install; pm2 restart all; exit"
   only:
-    - dev
+    - updated
 
 

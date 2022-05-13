@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
@@ -111,6 +112,17 @@ setAddresses([e.value]);
           alignItems: 'center',
         }}
       >
+=======
+import {Button, Form} from 'react-bootstrap';
+// import { useState } from 'react'
+
+const DistributeRewards = () => {
+  
+
+  return (
+    <>
+      <div className="add-content" style={{display:'felx',justifyContent:'center',alignItems:'center'}}>
+>>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
         <h1 className="add-head">Distribute Rewards</h1>
       </div>
       <div className="rwardContainer">
@@ -153,6 +165,7 @@ setAddresses([e.value]);
                   placeholder="Enter Wallet Address"
                   autoFocus
                   required
+<<<<<<< HEAD
                   onChange = {(e)=>addressesChangeHandler(e)}
                 /> */}
             </Form.Group>
@@ -164,6 +177,13 @@ setAddresses([e.value]);
               onClick={distribute}
               disabled={tokens.length === 0 || addresses.length === 0}
             >
+=======
+                />
+          </Form.Group>
+        </div>
+        <div className='btnContainer'>
+        <Button className="bg-primary" style={{marginTop:'30px',fontSize:'20px'}} >
+>>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
               Distribute
             </Button>
           </div>

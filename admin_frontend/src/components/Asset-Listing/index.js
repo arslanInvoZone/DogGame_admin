@@ -55,6 +55,10 @@ const AssetsList = () => {
     setShow(false)
     setShow2(false)
     setShow3(false);
+    setError("");
+    setError2("");
+    setError3("");
+    setError4("");
   }
   const handleShow = async () => setShow(true)
   const handleShow2 = async () => setShow2(true)
@@ -76,12 +80,12 @@ const AssetsList = () => {
     const image = e.target.files[0]
     setInputState(true)
     if (!image) {
-      setError3('image is required')
+      setError3('Image is required')
       setInputState(false)
       return
     }
     if (!image.name.match(/\.(jpg|jpeg|png|gif)$/)) {
-      setError3('select valid image.')
+      setError3('Select valid image')
       setInputState(false)
       return
     }
@@ -92,7 +96,7 @@ const AssetsList = () => {
     const file = e.target.files[0]
     setInputState2(true)
     if (!file) {
-      setError4('file is required')
+      setError4('File is required')
       setInputState2(false)
       return
     }
@@ -199,7 +203,7 @@ const AssetsList = () => {
   }
   const updateHandler = async() =>{
     await axios.put(process.env.REACT_APP_BASE_URL+'pets/update',{petId,petName,petDescription,petImageUrl})
-    notify('updated Successfuly!','success');
+    notify('Updated Successfuly!','success');
     handleClose();
     fetchData();
   }
@@ -210,7 +214,7 @@ const AssetsList = () => {
         <h2 className="add-head">Add Asset</h2>
 
         {/* model */}
-        <Button className="add-button" variant="primary" onClick={handleShow}>
+        <Button className="add-button" variant="primary"  onClick={handleShow}>
           Add
         </Button>
         <Modal show={show} onHide={handleClose}>
@@ -225,6 +229,7 @@ const AssetsList = () => {
                   type="text"
                   placeholder="Enter Name"
                   autoFocus
+                  maxlength = "20"
                   required
                   onChange={(e) => getPetName(e)}
                 />
@@ -241,6 +246,7 @@ const AssetsList = () => {
                 <Form.Control
                   type="text"
                   placeholder="Enter Description"
+                  maxlength = "40"
                   autoFocus
                   required
                   onChange={(e) => getPetDescription(e)}
@@ -267,8 +273,9 @@ const AssetsList = () => {
                 <Button
                   disabled={error3 || !inputState}
                   variant="primary"
-                  style={{ display: 'flex', marginTop: '5px' }}
+                  style={{ display: 'flex', marginTop: '5px' , boxShadow: "none"}}
                   onClick={uploadImageToPinata}
+                  className="upload"
                 >
                   Upload
                 </Button>
@@ -291,8 +298,9 @@ const AssetsList = () => {
                 <Button
                   disabled={error4 || !inputState2}
                   variant="primary"
-                  style={{ display: 'flex', marginTop: '5px' }}
+                  style={{ display: 'flex', marginTop: '5px', boxShadow: "none" }}
                   onClick={uploadFileToPinata}
+                  className="upload"
                 >
                   Upload
                 </Button>
@@ -300,10 +308,10 @@ const AssetsList = () => {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleClose} style={{boxShadow: "none" }}>
               Close
             </Button>
-            <Button disabled={saveBtn} variant="primary" onClick={sendDataToDB}>
+            <Button disabled={saveBtn} variant="primary" onClick={sendDataToDB} style={{ boxShadow: "none" }}>
               Save
             </Button>
           </Modal.Footer>
@@ -322,6 +330,7 @@ const AssetsList = () => {
                   type="text"
                   placeholder="Enter Name"
                   autoFocus
+                  maxlength = "20"
                   required
                   onChange={(e) => getPetName(e)}
                   value={petName}
@@ -340,6 +349,7 @@ const AssetsList = () => {
                   type="text"
                   placeholder="Enter Description"
                   autoFocus
+                  maxlength = "40"
                   required
                   onChange={(e) => getPetDescription(e)}
                   value={petDescription}
@@ -365,6 +375,7 @@ const AssetsList = () => {
                   variant="primary"
                   style={{ display: 'flex', marginTop: '5px' }}
                   onClick={uploadImageToPinata}
+                  className="upload"
                 >
                   Upload
                 </Button>
@@ -384,6 +395,7 @@ const AssetsList = () => {
                   variant="primary"
                   style={{ display: 'flex', marginTop: '5px' }}
                   onClick={uploadFileToPinata}
+                  className="upload"
                 >
                   Upload
                 </Button>

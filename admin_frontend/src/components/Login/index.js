@@ -1,5 +1,6 @@
 import { Navbar } from 'react-bootstrap'
 import { connectMetaMask } from '../../web3/web3Config'
+import NoInternetConnection from "./networkStatus"
 
 const Login = ({ admin }) => {
   return (
@@ -21,14 +22,21 @@ const Login = ({ admin }) => {
       {/*  */}
       <div className="login-bg">
         <div className="state">
+          {/* <h2 style={{ color: 'white' }}>Login With Your Metamask Wallet</h2> */}
+          <NoInternetConnection>
           <h2 style={{ color: 'white' }}>Login With Your Metamask Wallet</h2>
+      </NoInternetConnection>
         </div>
         <div style={{ position: 'relative' }}>
           <img
             src="./images/MetaMask_Fox.svg.png"
             height={100}
             width={100}
+<<<<<<< HEAD
             style={{ position: 'absolute', top: '-115px', left: '47%' }}
+=======
+            style={{ position: 'absolute', top: '-23px', left: '39%' }}
+>>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
             alt="img"
           />
           <button
