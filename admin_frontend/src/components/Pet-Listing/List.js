@@ -1,27 +1,5 @@
 const InvoiceItem = ({ item,show,getId,showupdate}) => {
   
-<<<<<<< HEAD
-    return (
-      <>
-          <td>
-            <img src ={item.imageUrl} alt={item.name} height={100} width={100}/>
-          </td>
-          <td>
-            <h2 className="table-avatar">
-                {item.name} <span>{item.id}</span>
-            </h2>
-          </td>
-          <td>{item.description}</td>
-          <td><a href={item.fileUrl}>Download Game Assets File</a></td>
-          <td className="text-right">
-            <div className="table-action ">
-              <div className="btn btn-sm bg-danger-light" onClick={()=>{show();getId(item._id)}}>
-                <i className="fa fa-trash"></i> Delete
-              </div>
-              <div className="btn btn-sm bg-primary" style={{color:'white'}} onClick={()=>{showupdate(item._id);getId(item._id)}}>
-                <i className="fa fa-edit"></i> Edit
-              </div>
-=======
   return (
     <>
         <td>
@@ -38,9 +16,8 @@ const InvoiceItem = ({ item,show,getId,showupdate}) => {
           <div className="table-action ">
             <div className="btn btn-sm bg-danger-light" onClick={()=>{show();getId(item._id)}}>
               <i className="fa fa-trash"></i> Delete
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
             </div>
-            <div className="btn btn-sm bg-primary" style={{color:'white'}} onClick={()=>{showupdate();getId(item._id)}}>
+            <div className="btn btn-sm bg-primary" style={{color:'white'}} onClick={()=>{showupdate(item._id);getId(item._id)}}>
               <i className="fa fa-edit"></i> Edit
             </div>
           </div>

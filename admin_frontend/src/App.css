@@ -20,12 +20,6 @@ a {
 }
 .state {
   height: 33%;
-<<<<<<< HEAD
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin-top: -35px;
-=======
   justify-content: center;
   display: flex;
   align-items: center;
@@ -33,7 +27,6 @@ a {
 }
 .login-btn:active {
   background-color: #f3af7e;
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
 }
 .upload:active{
   background-color: #c9c9c9;

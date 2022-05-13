@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import List from './List'
 import { useEffect, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
@@ -6,15 +5,6 @@ import { Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-=======
-import List from "./List";
-import { useEffect, useState } from "react";
-import Modal from "react-bootstrap/Modal";
-import { Button, Form } from "react-bootstrap";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
 
 const PetsList = () => {
   const [petsData, setPetsData] = useState([]);
@@ -67,7 +57,6 @@ const PetsList = () => {
     setShow(false);
     setShow2(false);
     setShow3(false);
-<<<<<<< HEAD
   }
   const handleShow = async () => setShow(true)
   const handleShow2 = async () => setShow2(true)
@@ -90,29 +79,6 @@ const PetsList = () => {
       setPetImageUrl('')
     })
   }
-=======
-    setError("");
-    setError2("");
-    setError3("");
-    setError4("");
-  };
-  const handleShow = async () => setShow(true);
-  const handleShow2 = async () => setShow2(true);
-  const handleShow3 = async () => {
-    setShow3(true);
-    await axios
-      .put(process.env.REACT_APP_BASE_URL + "pets/update", { petId })
-      .then((res) => {
-        const { name, description, imageUrl } = res.data;
-        if (!res.data) {
-          return;
-        }
-        setPetName(name);
-        setPetDescription(description);
-        setPetImageUrl(imageUrl);
-      });
-  };
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
 
   const getImageName = (e) => {
     const image = e.target.files[0];
@@ -170,7 +136,6 @@ const PetsList = () => {
       .then((respones) => {
         notify(respones.data.message, "success");
         fetchData();
-<<<<<<< HEAD
         
       })
       .catch((error) => {
@@ -182,17 +147,6 @@ const PetsList = () => {
         setInputState2(false);
         setPetName('');
   }
-=======
-        setInputState(false);
-        setInputState2(false);
-        setSaveBtn(true);
-      })
-      .catch((error) => {
-        notify(error, "error");
-      });
-    setShow(false);
-  };
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
   const uploadImageToPinata = () => {
     console.log(process.env.REACT_APP_PIN_FILE_TO_IPFS_URL);
     const data = new FormData();
@@ -238,15 +192,8 @@ const PetsList = () => {
         },
       })
       .then(function (response) {
-<<<<<<< HEAD
         setPetFileUrl(`${process.env.REACT_APP_PINATA_BASE_URL}${response.data.IpfsHash}`)
         notify('Uploaded Successfully!', 'success') 
-=======
-        setPetFileUrl(
-          `${process.env.REACT_APP_PINATA_BASE_URL}${response.data.IpfsHash}`
-        );
-        notify("Uploaded Successfully!", "success");
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
       })
       .catch((error) => {
         notify(error, "error");
@@ -260,22 +207,10 @@ const PetsList = () => {
         fetchData();
       });
     handleClose();
-<<<<<<< HEAD
   }
   const updateHandler = async() =>{
     await axios.put(process.env.REACT_APP_BASE_URL+'pets/update',{petId,petName,petDescription,petImageUrl,petFileUrl})
     notify('updated Successfuly!','success');
-=======
-  };
-  const updateHandler = async () => {
-    await axios.put(process.env.REACT_APP_BASE_URL + "pets/update", {
-      petId,
-      petName,
-      petDescription,
-      petImageUrl,
-    });
-    notify("Updated Successfuly!", "success");
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
     handleClose();
     fetchData();
   };
@@ -415,7 +350,6 @@ const PetsList = () => {
             >
               Close
             </Button>
-<<<<<<< HEAD
             <OverlayTrigger
                 placement="top"
                 delay={{ show: 250, hide: 400 }}
@@ -423,14 +357,6 @@ const PetsList = () => {
                 >
               <div >
             <Button disabled={saveBtn} variant="primary" onClick={sendDataToDB} >
-=======
-            <Button
-              disabled={console.log(saveBtn)}
-              variant="primary"
-              onClick={sendDataToDB}
-              style={{ boxShadow: "none" }}
-            >
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
               Save
             </Button>
             </div>
@@ -486,17 +412,7 @@ const PetsList = () => {
               <Form.Group className="mb-3">
                 <Form.Label style={{ color: "#505458" }}>Image</Form.Label>
                 <br></br>
-<<<<<<< HEAD
                 <img src={petImageUrl || ''} alt="" height={100} width={100} style={{marginBottom:"5px"}}/>
-=======
-                <img
-                  src={petImageUrl}
-                  alt=""
-                  height={100}
-                  width={100}
-                  style={{ marginBottom: "5px" }}
-                />
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
                 <Form.Control
                   type="file"
                   placeholder="File"
@@ -507,15 +423,7 @@ const PetsList = () => {
                 <Button
                   disabled={error3 || !inputState}
                   variant="primary"
-<<<<<<< HEAD
                   style={{ display: 'flex', marginTop: '5px',pointerEvents: 'none' }}
-=======
-                  style={{
-                    display: "flex",
-                    marginTop: "5px",
-                    boxShadow: "none",
-                  }}
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
                   onClick={uploadImageToPinata}
                   className="upload"
                 >

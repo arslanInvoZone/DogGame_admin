@@ -34,11 +34,7 @@ function App() {
           localStorage.setItem("adminInfo",JSON.stringify(res.data));
           setAdmin(true);
           // navigate('/users');
-<<<<<<< HEAD
           notify('user logedIn successfuly!','success');
-=======
-          notify('User logged in successfuly!');
->>>>>>> bea4aa69837c99d011d5cb5bac37312d3f1a0687
         })
         .catch((error)=>{
           alert('Please Login With Admin Wallet!')
