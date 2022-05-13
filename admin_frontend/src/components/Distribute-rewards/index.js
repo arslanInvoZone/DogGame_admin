@@ -119,6 +119,7 @@ setAddresses([e.value]);
             <Form.Group>
               <Form.Label>Enter Reward:</Form.Label>
               {/* <CreatableSelect
+              
                 // defaultValue={[colourOptions[2], colourOptions[3]]}
                 
                 name="colors"
