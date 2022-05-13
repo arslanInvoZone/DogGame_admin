@@ -1,7 +1,7 @@
 import List from './List'
 import { useEffect, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -58,10 +58,11 @@ const PetsList = () => {
   }
   const handleShow = async () => setShow(true)
   const handleShow2 = async () => setShow2(true)
-  const handleShow3 = async () => {
-    setShow3(true)
-    await axios.put(process.env.REACT_APP_BASE_URL+'pets/update',{petId})
+  const handleShow3 = async (id) => {
+    console.log(id)
+    await axios.put(process.env.REACT_APP_BASE_URL+'pets/update',{id,petName,petDescription,petImageUrl,petFileUrl})
     .then((res)=>{
+      console.log(res.data)
       const{name,description,imageUrl} = res.data
       if(!res.data){
       return
@@ -69,6 +70,11 @@ const PetsList = () => {
       setPetName(name)
         setPetDescription(description)
         setPetImageUrl(imageUrl)
+        setShow3(true)
+    }).catch((error)=>{
+      setPetName('')
+      setPetDescription('')
+      setPetImageUrl('')
     })
   }
 
@@ -128,14 +134,16 @@ const PetsList = () => {
       .then((respones) => {
         notify(respones.data.message, 'success')
         fetchData();
-        setInputState(false);
-        setInputState2(false);
-        setSaveBtn(true)
+        
       })
       .catch((error) => {
         notify(error, 'error')
       })
     setShow(false)
+    setSaveBtn(true);
+    setInputState(false);
+        setInputState2(false);
+        setPetName('');
   }
   const uploadImageToPinata = () => {
     console.log(process.env.REACT_APP_PIN_FILE_TO_IPFS_URL)
@@ -183,7 +191,7 @@ const PetsList = () => {
       })
       .then(function (response) {
         setPetFileUrl(`${process.env.REACT_APP_PINATA_BASE_URL}${response.data.IpfsHash}`)
-        notify('Uploaded Successfully!', 'success')
+        notify('Uploaded Successfully!', 'success') 
       })
       .catch((error) => {
         notify(error, 'error')
@@ -198,7 +206,7 @@ const PetsList = () => {
     handleClose();
   }
   const updateHandler = async() =>{
-    await axios.put(process.env.REACT_APP_BASE_URL+'pets/update',{petId,petName,petDescription,petImageUrl})
+    await axios.put(process.env.REACT_APP_BASE_URL+'pets/update',{petId,petName,petDescription,petImageUrl,petFileUrl})
     notify('updated Successfuly!','success');
     handleClose();
     fetchData();
@@ -264,6 +272,13 @@ const PetsList = () => {
                     {error3}
                   </Form.Label>
                 )}
+                <OverlayTrigger
+                placement="right"
+                delay={{ show: 250, hide: 400 }}
+                overlay={<Tooltip id="tooltip-disabled">Please choose a file to enable!</Tooltip>}
+                
+                >
+                  <div style={{width:'fit-content'}}>
                 <Button
                   disabled={error3 || !inputState}
                   variant="primary"
@@ -272,6 +287,8 @@ const PetsList = () => {
                 >
                   Upload
                 </Button>
+                </div>
+                </OverlayTrigger>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label style={{ color: '#505458' }}>
@@ -288,6 +305,12 @@ const PetsList = () => {
                     {error4}
                   </Form.Label>
                 )}
+                 <OverlayTrigger
+                placement="right"
+                delay={{ show: 250, hide: 400 }}
+                overlay={<Tooltip id="tooltip-disabled">Please choose a file to enable!</Tooltip>}
+                >
+                  <div style={{width:'fit-content'}}>
                 <Button
                   disabled={error4 || !inputState2}
                   variant="primary"
@@ -296,6 +319,8 @@ const PetsList = () => {
                 >
                   Upload
                 </Button>
+                </div>
+                </OverlayTrigger>
               </Form.Group>
             </Form>
           </Modal.Body>
@@ -303,9 +328,17 @@ const PetsList = () => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button disabled={saveBtn} variant="primary" onClick={sendDataToDB}>
+            <OverlayTrigger
+                placement="top"
+                delay={{ show: 250, hide: 400 }}
+                overlay={<Tooltip id="tooltip-disabled">All fields are required and upload the both files to enable!</Tooltip>}
+                >
+              <div >
+            <Button disabled={saveBtn} variant="primary" onClick={sendDataToDB} >
               Save
             </Button>
+            </div>
+            </OverlayTrigger>
           </Modal.Footer>
         </Modal>
         
@@ -353,17 +386,18 @@ const PetsList = () => {
               <Form.Group className="mb-3">
                 <Form.Label style={{ color: '#505458' }}>Image</Form.Label>
                 <br></br>
-                <img src={petImageUrl} alt="" height={100} width={100} style={{marginBottom:"5px"}}/>
+                <img src={petImageUrl || ''} alt="" height={100} width={100} style={{marginBottom:"5px"}}/>
                 <Form.Control
                   type="file"
                   placeholder="File"
                   autoFocus
                   onChange={(e) => getImageName(e)}
                 />
+                
                 <Button
                   disabled={error3 || !inputState}
                   variant="primary"
-                  style={{ display: 'flex', marginTop: '5px' }}
+                  style={{ display: 'flex', marginTop: '5px',pointerEvents: 'none' }}
                   onClick={uploadImageToPinata}
                 >
                   Upload

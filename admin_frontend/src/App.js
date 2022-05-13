@@ -27,16 +27,17 @@ function App() {
   })
 
     const authenticateAdmin = async (address) => {
+      console.log(address)
       if(address){
         await axios.post(process.env.REACT_APP_BASE_URL+'admin/auth',{address})
         .then((res)=>{
           localStorage.setItem("adminInfo",JSON.stringify(res.data));
           setAdmin(true);
           // navigate('/users');
-          notify('user logedIn successfuly!');
+          notify('user logedIn successfuly!','success');
         })
         .catch((error)=>{
-          alert(error.response);
+          alert('Please Login With Admin Wallet!')
         })
       }
     }

@@ -24,7 +24,7 @@ a {
     justify-content: center;
     display: flex;
     align-items: center;
-    margin-top: -31px;
+    margin-top: -35px;
 }
 .login-bg{
   background-image: url('../public/images/istockphoto-505949309-612x612.jpg');
@@ -60,6 +60,9 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 40px;
+}
+.basic-multi-select{
+  width:300px;
 }
 
 /* ===============================================%%%%%%% sidebar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/

@@ -28,7 +28,7 @@ const Login = ({ admin }) => {
             src="./images/MetaMask_Fox.svg.png"
             height={100}
             width={100}
-            style={{ position: 'absolute', top: '-23px', left: '42%' }}
+            style={{ position: 'absolute', top: '-115px', left: '47%' }}
             alt="img"
           />
           <button

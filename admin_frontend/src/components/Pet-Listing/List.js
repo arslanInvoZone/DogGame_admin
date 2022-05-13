@@ -17,7 +17,7 @@ const InvoiceItem = ({ item,show,getId,showupdate}) => {
               <div className="btn btn-sm bg-danger-light" onClick={()=>{show();getId(item._id)}}>
                 <i className="fa fa-trash"></i> Delete
               </div>
-              <div className="btn btn-sm bg-primary" style={{color:'white'}} onClick={()=>{showupdate();getId(item._id)}}>
+              <div className="btn btn-sm bg-primary" style={{color:'white'}} onClick={()=>{showupdate(item._id);getId(item._id)}}>
                 <i className="fa fa-edit"></i> Edit
               </div>
             </div>

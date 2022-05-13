@@ -56,8 +56,8 @@ const deletePet = async (req, res) => {
 //@acess Private
 const updatePet = async (req, res) => {
   try{
-    const {petId,petName,petDescription,petImageUrl,petFileUrl} = req.body
-    const pet = await Pets.findById({_id:petId});
+    const {id,petName,petDescription,petImageUrl,petFileUrl} = req.body
+    const pet = await Pets.findOne({_id:id});
     if(pet){
     pet.name = petName || pet.name;
     pet.description = petDescription || pet.description;
