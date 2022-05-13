@@ -1,5 +1,5 @@
 import { Navbar } from 'react-bootstrap'
-import { connectMetaMask } from '../../web3Config'
+import { connectMetaMask } from '../../web3/web3Config'
 
 const Login = ({ admin }) => {
   return (
